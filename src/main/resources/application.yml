@@ -1,0 +1,31 @@
+http:
+  http-pool:
+    max:
+      connection:
+        per:
+          route: 10
+    retry:
+      backoff:
+        max:
+          elapsed:
+            time: 5000
+        initial:
+          interval: 1000
+      max:
+        attempts: 3
+    connection:
+      pool:
+        timeout:
+          ms: 10000
+      max:
+        connections: 100
+      timeout:
+        ms: 5000
+      request:
+        timeout:
+          ms: 10000
+      socket:
+        timeout:
+          ms: 30000
+server:
+  port: 8888
